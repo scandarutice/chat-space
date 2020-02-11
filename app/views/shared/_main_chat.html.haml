@@ -2,32 +2,21 @@
   .group-info
     .group-info__left
       .group-info__left__current-group
-        現在のグループ
+        = @group.name
       .group-info__left__member-list
-        メンバー一覧
-    = link_to "#" do
+        - @group.users.each do |user|
+          =user.name
+    = link_to edit_group_path(@group) do
       .group-info__edit Edit
   .message-list
     .message
-      .message__upper-info
-        .message__upper-info__talker yamada
-        .message__upper-info__date 2019/1/1
-      .message__text yahoo
-    .message
-      .message__upper-info
-        .message__upper-info__talker yamada
-        .message__upper-info__date 2019/1/1
-      .message__text yahoo
-    .message
-      .message__upper-info
-        .message__upper-info__talker yamada
-        .message__upper-info__date 2019/1/1
-      .message__text yahoo
+      = render @messages
   .message-form
-    .new-message
-      .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__img"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "input-box__img__file"}
-      %input{type: "submit", class: "submit-btn",value: "Send"}
+    = form_for [@group, @message] do |f| 
+      .new-message
+        .input-box
+          = f.text_field :content, class: "input-box__text", placeholder: "type a message"
+          = f.label :image, class: "input-box__img" do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: "input-box__img__file"
+        = f.submit 'Send', class: "submit-btn"
