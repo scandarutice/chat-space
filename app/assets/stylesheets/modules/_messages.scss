@@ -70,6 +70,7 @@
     @include size(100px,100%);
     border-bottom: 1px solid #eeeeee;
     padding: 0px 40px;
+    overflow: scroll;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -100,6 +101,7 @@
     width: 100%;
     background-color: #fafafa;
     padding: 46px 40px;
+    overflow: scroll;
     .message {
       padding-bottom: 46px;
       .upper-info {
