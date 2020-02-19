@@ -49,20 +49,23 @@
     background-color: #2f3e51;
     overflow: scroll;
     padding: 20px 20px 0px;
-    &__name {
-      @include size(20px,100%);
-      @include fsc(15px,#ffffff);
-      font-weight: bold;
-      margin: 0px 0px 5px;
-    }
-    &__message {
-      @include size(20px,100%);
-      @include fsc(11px,#ffffff);
-      font-weight: bold;
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      .list-name {
+        @include size(20px,100%);
+        @include fsc(15px,#ffffff);
+        font-weight: bold;
+        margin: 0px 0px 5px;
+      }
+      .list-message {
+        @include size(20px,100%);
+        @include fsc(11px,#ffffff);
+        font-weight: bold;
+      }
     }
   }
 }
-
 .main-chat {
   height: 100vh;
   width: calc(100vw - 300px);
